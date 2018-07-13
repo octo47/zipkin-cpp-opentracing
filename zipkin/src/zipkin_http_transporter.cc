@@ -8,7 +8,7 @@
 
 namespace zipkin {
 static std::string getUrl(const char *collector_host, uint32_t collector_port) {
-  return std::string{"http://"} + collector_host + ":" +
+  return std::string{"https://"} + collector_host + ":" +
          std::to_string(collector_port) +
          ZipkinCoreConstants::get().DEFAULT_COLLECTOR_ENDPOINT;
 }
