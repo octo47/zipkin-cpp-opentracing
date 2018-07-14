@@ -275,6 +275,8 @@ cc_library(
         ],
         "//conditions:default": [
             "-lrt",
+            "-lssl",
+            "-lcrypto",
         ],
     }),
     visibility = ["//visibility:public"],
@@ -435,7 +437,7 @@ genrule(
         "#  define CURL_CA_BUNDLE \"/etc/ssl/certs/ca-certificates.crt\"",
         "#  define GETSERVBYPORT_R_ARGS 6",
         "#  define GETSERVBYPORT_R_BUFSIZE 4096",
-        "#  define HAVE_BORINGSSL 1",
+        "#  define HAVE_BORINGSSL 0",
         "#  define HAVE_CLOCK_GETTIME_MONOTONIC 1",
         "#  define HAVE_CRYPTO_CLEANUP_ALL_EX_DATA 1",
         "#  define HAVE_FSETXATTR_5 1",

@@ -15,6 +15,7 @@ static std::string getUrl(const char *collector_host, uint32_t collector_port) {
 
 ZipkinHttpTransporter::ZipkinHttpTransporter(const char *collector_host,
                                              uint32_t collector_port) {
+  curl_easy_setopt(handle_, CURLOPT_SSL_VERIFYPEER, 0);
   auto rcode = curl_easy_setopt(handle_, CURLOPT_URL,
                                 getUrl(collector_host, collector_port).c_str());
   if (rcode != CURLE_OK) {
