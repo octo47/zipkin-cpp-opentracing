@@ -27,3 +27,20 @@ cc_library(
         "@io_opentracing_cpp//:opentracing"
     ]
 )
+
+cc_library(
+    name = "zipkin_example_lib",
+    srcs = glob(["zipkin_opentracing/example/*.cc"]),
+    hdrs = glob(["zipkin_opentracing/example/*.h"]),
+    strip_include_prefix = "zipkin_opentracing/example",
+    deps = [
+        ":zipkin_opentracing"
+    ]
+)
+
+cc_binary(
+    name = "zipkin_example",
+    deps = [
+        ":zipkin_example_lib"
+    ]
+)
