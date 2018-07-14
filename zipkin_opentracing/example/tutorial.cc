@@ -6,8 +6,11 @@
 using namespace zipkin;
 using namespace opentracing;
 
-int main() {
+int main(int argc, char** argv) {
   ZipkinOtTracerOptions options;
+  if (argc > 1) {
+    options.collector_host = std::string(argv[1]);
+  }
   options.service_name = "Tutorial";
   auto tracer = makeZipkinOtTracer(options);
   assert(tracer);
